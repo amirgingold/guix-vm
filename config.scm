@@ -48,4 +48,12 @@
                       (specification->package "emacs-exwm")
                       (specification->package "emacs-desktop-environment")
                       (specification->package "nss-certs"))
-                    %base-packages)))
+                    %base-packages))
+  
+  (services (cons* (service slim-service-type
+                             (slim-configuration
+			       (auto-login? t)
+			       (default-user "me")))
+		   (modify-services %desktop-services
+                     (delete gdm-service-type)))))
+			      
