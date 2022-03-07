@@ -52,7 +52,7 @@
   
   (services (cons* (service slim-service-type
                              (slim-configuration
-			       (auto-login? t)
+			       (auto-login? #t)
 			       (default-user "me")))
 		   (modify-services %desktop-services
                      (delete gdm-service-type)))))
