@@ -9,4 +9,4 @@ xhost +SI:localuser:$USER
 shepherd
 
 # Fire it up
-exec dbus-launch --exit-with-session emacs -mm --debug-init --use-exwm
+exec dbus-launch --exit-with-session emacs --background-color red -mm --debug-init --use-exwm
