@@ -1,1 +1,1 @@
-~/.emacs.d/exwm/start-exwm.sh
+~/start-exwm.sh
