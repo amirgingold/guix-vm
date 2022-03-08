@@ -2,6 +2,7 @@
 	     (nongnu packages linux)
 	     (nongnu system linux-initrd))
 (use-service-modules desktop networking ssh xorg)
+(use-service-modules nix)
 
 (operating-system
   (host-name "guix")
@@ -43,7 +44,8 @@
                                "%wheel ALL=NOPASSWD: ALL") "\n")))
  
   (packages (append (list
-                      (specification->package "git")		     
+		      (specification->package "git")
+                      (specification->package "nix")		     
                       (specification->package "emacs")
                       (specification->package "emacs-exwm")
                       (specification->package "emacs-desktop-environment")
@@ -54,6 +56,7 @@
                              (slim-configuration
 			       (auto-login? #t)
 			       (default-user "me")))
+		   (service nix-service-type)
 		   (modify-services %desktop-services
-                     (delete gdm-service-type)))))
+                                    (delete gdm-service-type)))))
 			      
