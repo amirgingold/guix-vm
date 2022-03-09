@@ -6,7 +6,10 @@
 # Disable access control for the current user
 xhost +SI:localuser:$USER
 
-shepherd
+# Start Shepherd to manage user daemons
+if [ -z "$(pgrep -u me shepherd)" ]; then
+  shepherd
+fi
 
 # Fire it up
-exec dbus-launch --exit-with-session emacs --background-color red -mm --debug-init --use-exwm
+exec dbus-launch --exit-with-session emacs --debug-init
